@@ -37,6 +37,9 @@ app.get("/api/posts/:id", (req, res) => {
     }
 });
 
+app.get("/", (req, res) => {
+    res.send("All useable routes start with slash api");
+});
 
 app.listen(port, () => {
     console.log(`Server listening on port: ${port}.`);
