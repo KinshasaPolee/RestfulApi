@@ -19,8 +19,24 @@ app.get("/api/users/:id", (req, res) => {
         res.json(user);
     } else {
         res.send("User Not Found")
-}
-})
+    }
+});
+
+// index route for Posts
+app.get("/api/posts", (req, res) => {
+    res.json(posts);
+});
+
+// show route for posts
+app.get("/api/posts/:id", (req, res) => {
+    const post = posts.find((p) => p.id == req.params.id);
+    if (post) {
+        res.json(post);
+    } else {
+        res.send("Post not found")
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Server listening on port: ${port}.`);
